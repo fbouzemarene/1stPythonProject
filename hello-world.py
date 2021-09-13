@@ -1,5 +1,6 @@
 import requests
 import json
+import pprint
 
 url = 'https://api.mist.com/api/v1/sites/addd1bff-4b9c-44ee-a6c0-87920b7a9aa0/wlans'
 
@@ -10,6 +11,8 @@ headers = {
 
 results = requests.get(url, headers=headers)
 wlans = json.loads(results.text)
+
+pprint.pprint(wlans)
 
 for wlan in wlans:
     print(wlan["ssid"], ">", wlan["id"])
